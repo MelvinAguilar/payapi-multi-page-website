@@ -2,26 +2,370 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #edf3f8;
+    color: #36536b;
+    font-family: var(--font-public-sans), sans-serif !important;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  :is(a, button, input, textarea, select, details, summary):focus-visible {
+    outline: #BA4270 solid 0.188rem;
+    outline-offset: 0.188rem;
+  }
+
+  main {
+    position: relative;
+  }
+
+  .blocked {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  input[aria-invalid="true"],
+  textarea[aria-invalid="true"] {
+    @apply border-irresistible text-irresistible;
+  }
+
+  .text-align {
+    @apply text-center lg:text-left;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+
+  /* ------------------------------------ */
+  /*             Overlay Styles           */
+  /* ------------------------------------ */
+  header nav {
+    @apply overflow-auto w-full invisible md:visible;
+  }
+
+  button[aria-expanded="true"]+nav {
+    @apply visible fixed inset-0 z-10 bg-dark-gunmetal/80;
+  }
+
+  /* ------------------------------------ */
+  /*      Toggle Navbar Visibility        */
+  /* ------------------------------------ */
+
+  #navbar-menu {
+    transition: right 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    @apply invisible -right-full md:right-0 md:visible
+  }
+
+  button[aria-expanded="true"]+nav>#navbar-menu {
+    @apply visible right-0;
+  }
+
+  /* ------------------------------------ */
+  /*         Hamburger Menu Styles        */
+  /* ------------------------------------ */
+
+
+  button[aria-expanded="true"] .bar1 {
+    @apply translate-y-2 rotate-45 bg-white;
+  }
+
+  button[aria-expanded="true"] .bar2 {
+    @apply opacity-0;
+  }
+
+  button[aria-expanded="true"] .bar3 {
+    @apply -translate-y-2 -rotate-45 bg-white;
+  }
+
+
+  /* ------------------------------------ */
+  /*        Mobile Device Menu Styles     */
+  /* ------------------------------------ */
+
+
+  .menu-options {
+    max-width: 18.75rem;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+    z-index: 10;
+    @apply bg-dark-gunmetal md:relative md:min-h-fit md:max-w-none md:p-0 w-full top-0 absolute pt-20 p-6 items-center flex-col text-white;
+  }
+
+  @media screen(md) {
+    .menu-options {
+      @apply w-full flex-row text-police-blue bg-transparent block;
+    }
+  }
+
+  /* ------------------------------------ */
+  /*          Container Styles            */
+  /* ------------------------------------ */
+
+  .container {
+    padding-inline: 1.25rem;
+    margin-inline: auto;
+  }
+
+  .container-small {
+    padding-inline: 1.25rem;
+    margin-inline: auto;
+  }
+
+  @media screen(lg) {
+    .container {
+      max-width: 71.875rem !important;
+      padding-inline: 1.25rem;
+    }
+
+    .container-small {
+      max-width: 57.5rem;
+      padding-inline: 1.25rem;
+    }
+  }
+
+  /* ------------------------------------ */
+  /*            Button Styles             */
+  /* ------------------------------------ */
+
+  .controller {
+    font-size: 0.9375rem;
+    line-height: normal;
+    @apply transition-all rounded-full font-semibold tracking-button text-white;
+  }
+
+  @media screen(md) {
+    .controller {
+      width: fit-content !important;
+    }
+  }
+
+  .controller-purple {
+    @apply bg-irresistible hover:bg-light-irresistible;
+  }
+
+  .controller-white {
+    border: 0.0625rem solid white;
+    @apply hover:bg-white text-white hover:text-police-blue;
+  }
+
+  .controller-dark {
+    border: 0.0625rem solid #36536b;
+    @apply hover:bg-police-blue text-police-blue hover:text-flash-White;
+  }
+
+  /* -------------------------------------------------- */
+  /*       Image Filter and Custom Padding Styles       */
+  /* -------------------------------------------------- */
+
+  .filter-white {
+    filter: brightness(0) invert(100%);
+  }
+
+  .p-btn {
+    padding: 1rem 1.5313rem 0.875rem 1.6563rem;
+  }
+
+  .p-btn-aux {
+    padding: 0.9375rem 2rem 0.8125rem 1.9375rem;
+  }
+
+  .p-input {
+    padding: 1rem 1.6875rem 0.875rem 1.6875rem;
+  }
+
+  /* ----------------------------------- */
+  /*           Checkbox Styles           */
+  /* ----------------------------------- */
+
+  input[type="checkbox"]+label {
+    position: relative;
+    display: inline-block;
+    padding-left: 2.5rem;
+  }
+
+  input[type="checkbox"]+label::before,
+  input[type="checkbox"]+label::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+  }
+
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  input[type="checkbox"]+label::before {
+    content: "";
+    background-color: #bfcbd5;
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  input[type="checkbox"]+label::after {
+    height: 0.4375rem;
+    width: 0.8125rem;
+    left: 0.3125rem;
+    top: 0.4375rem;
+    border-left: 0.1875rem solid white;
+    border-bottom: 0.1875rem solid white;
+    transform: rotate(-45deg);
+  }
+
+  input[type="checkbox"]+label::after {
+    content: none;
+  }
+
+  input[type="checkbox"]:checked+label::after {
+    content: "";
+  }
+
+  input[type="checkbox"]:checked+label::before {
+    background-color: #ba4270;
+  }
+
+  input[type="checkbox"]:focus+label::before {
+    outline: #BA4270 solid 0.188rem;
+    outline-offset: 0.188rem;
+  }
+
+  /* ------------------------------------ */
+  /*           Typography Styles          */
+  /* ------------------------------------ */
+
+  .title {
+    font-size: clamp(2rem, 1.2857rem + 3.5714vw, 4.5rem);
+    line-height: 100%;
+  }
+
+  .subtitle {
+    font-size: clamp(2rem, 1.7143rem + 1.4286vw, 3rem);
+    font-weight: 400;
+    line-height: 3.5rem;
+    letter-spacing: -0.0231rem;
+  }
+
+  .subtitle-aux {
+    font-size: clamp(1.5rem, 1.3571rem + 0.7143vw, 2rem);
+    font-weight: 400;
+    line-height: 2.5rem;
+    letter-spacing: -0.0154rem;
+  }
+
+  .content {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+  }
+
+  .feat-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.5625rem;
+    letter-spacing: -0.0086rem;
+  }
+
+  .feat-content {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5625rem;
+    letter-spacing: -0.0072rem;
+  }
+
+  .form-title {
+    font-size: clamp(2rem, 1.7143rem + 1.4286vw, 3rem);
+    font-weight: 400;
+    line-height: 3.5rem;
+    letter-spacing: -0.0231rem;
+  }
+
+  .form-input {
+    font-size: 0.9375rem;
+    line-height: normal;
+  }
+
+  /* ------------------------------------- */
+  /*        Background Circle Styles       */
+  /* ------------------------------------- */
+
+  .circle::before,
+  .circle-second::before,
+  .circle-third::before {
+    content: "";
+    background: url("/shared/desktop/bg-pattern-circle.svg");
+    width: 48.75rem;
+    height: 48.75rem;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .circle::before {
+    top: -11%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .circle-second::before {
+    top: -88%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media screen(lg) {
+    .circle::before {
+      top: -18.75rem;
+      right: -8.75rem;
+      left: auto;
+      transform: none;
+    }
+
+    .circle-second::before {
+      top: -22.4375rem;
+      left: -14.6875rem;
+      transform: none;
+    }
+  }
+
+  .circle-third::before {
+    top: -9rem;
+    right: -34.5625rem;
+  }
+
+  /* ------------------------------------- */
+  /*            Section Styles             */
+  /* ------------------------------------- */
+
+  .plan-feature {
+    display: flex;
+    flex-direction: row;
+    gap: 0.625rem;
+  }
+
+  .plan-feature::before {
+    content: "";
+    display: block;
+    width: 0.875rem;
+    height: 0.6875rem;
+  }
+
+  .feature-true::before {
+    background: url("/shared/desktop/icon-check.svg");
+  }
 }
