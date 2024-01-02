@@ -1,5 +1,6 @@
 import React from "react";
 import Pricing from "./Pricing";
+import { FadeIn } from "../FadeIn";
 
 const PricingContainer = () => {
   const pricingPlans = [
@@ -114,10 +115,16 @@ const PricingContainer = () => {
   ];
 
   return (
-    <div className="container text-police-blue text-center md:text-left">
-      <h1 className="text-center lg:text-start subtitle font-serif my-12">Pricing</h1>
+    <div className="container text-center text-police-blue md:text-left">
+      <FadeIn
+        as="h1"
+        className="subtitle my-12 text-center font-serif lg:text-start"
+        withoutViewport
+      >
+        Pricing
+      </FadeIn>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         {pricingPlans.map((plan) => (
           <Pricing
             key={plan.title}

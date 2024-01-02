@@ -4,6 +4,7 @@ import { contactSchema } from "@/validations/ContactSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Input from "../Form/Input";
 import Brands from "../Brands/Brands";
+import { FadeIn, FadeInStagger } from "../FadeIn";
 
 type FormValues = {
   name: string;
@@ -29,12 +30,20 @@ const ContactContainer = () => {
   };
 
   return (
-    <div className="container">
-      <h1 className="subtitle mx-auto my-12 max-w-[25ch] text-center font-serif lg:mx-0 lg:text-start">
+    <div className="container pb-12">
+      <FadeIn
+        as="h1"
+        className="subtitle mx-auto my-12 max-w-[25ch] text-center font-serif lg:mx-0 lg:text-start"
+        withoutViewport
+      >
         Submit a help request and we’ll get in touch shortly.
-      </h1>
+      </FadeIn>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <FadeInStagger
+        className="grid gap-6 lg:grid-cols-2"
+        faster
+        withoutViewport
+      >
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             innerRef={register("name")}
@@ -74,7 +83,7 @@ const ContactContainer = () => {
             errors={errors.message}
           />
 
-          <div className="relative mx-5 my-8 flex items-center gap-4">
+          <FadeIn className="relative mx-5 my-8 flex items-center gap-4">
             <input
               type="checkbox"
               id="announcements"
@@ -86,22 +95,28 @@ const ContactContainer = () => {
             >
               Stay up-to-date with company announcements and updates to our API
             </label>
-          </div>
+          </FadeIn>
 
-          <button
+          <FadeIn
+            as="button"
             type="submit"
             className="p-btn-aux controller controller-dark block"
+            withoutViewport
           >
             Submit
-          </button>
+          </FadeIn>
         </form>
         <div className="pb-16 text-center lg:pb-0 lg:pt-[10.9375rem] lg:text-start">
-          <p className="subtitle-auz mx-auto mb-6 max-w-[45ch] font-serif lg:mx-0">
+          <FadeIn
+            as="p"
+            className="subtitle-auz mx-auto mb-6 max-w-[45ch] font-serif lg:mx-0"
+            withoutViewport
+          >
             Join the thousands of innovators that are already building with us
-          </p>
+          </FadeIn>
           <Brands />
         </div>
-      </div>
+      </FadeInStagger>
     </div>
   );
 };

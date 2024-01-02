@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { FadeIn, FadeInStagger } from "../FadeIn";
 
 type BrandsProps = {
   imageColor?: string;
@@ -52,9 +53,17 @@ const Brands = ({ imageColor = "" }: BrandsProps) => {
   ];
 
   return (
-    <ul className="grid grid-cols-2 content-center items-center justify-center gap-x-[1.875rem] gap-y-[2.4375rem] md:grid-cols-3">
+    <FadeInStagger
+      as="ul"
+      faster
+      className="grid grid-cols-2 content-center items-center justify-center gap-x-[1.875rem] gap-y-[2.4375rem] md:grid-cols-3"
+    >
       {brands.map((brand) => (
-        <li key={brand.alt} className={`mx-auto w-fit md:mx-0 ${brand.styles}`}>
+        <FadeIn
+          as="li"
+          key={brand.alt}
+          className={`mx-auto w-fit md:mx-0 ${brand.styles}`}
+        >
           <Image
             src={brand.src}
             alt={brand.alt}
@@ -62,9 +71,9 @@ const Brands = ({ imageColor = "" }: BrandsProps) => {
             height={brand.height}
             className={imageColor}
           />
-        </li>
+        </FadeIn>
       ))}
-    </ul>
+    </FadeInStagger>
   );
 };
 

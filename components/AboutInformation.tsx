@@ -1,15 +1,24 @@
 import React from "react";
+import { FadeIn, FadeInStagger } from "./FadeIn";
 
 const AboutInformation = () => {
   return (
     <>
       <section className="!container-small my-12 max-w-[35rem] text-center md:max-w-[47.5rem] md:text-start">
-        <h1 className="subtitle mx-auto max-w-[23ch] text-center font-serif lg:mx-0 lg:text-start">
+        <FadeIn
+          as="h1"
+          className="subtitle mx-auto max-w-[23ch] text-center font-serif lg:mx-0 lg:text-start"
+          withoutViewport
+        >
           We empower innovators by delivering access to the financial system
-        </h1>
+        </FadeIn>
 
         <ul className="flex flex-col gap-12 py-12">
-          <li className="grid gap-8 md:grid-cols-[0.3fr,1fr]">
+          <FadeIn
+            as="li"
+            className="grid gap-8 md:grid-cols-[0.3fr,1fr]"
+            withoutViewport
+          >
             <h2 className="subtitle-aux font-serif">Our Vision</h2>
             <p className="content">
               Our main goal is to build beautiful consumer experiences along
@@ -18,9 +27,13 @@ const AboutInformation = () => {
               products that solve big problems. We are deeply focused on
               democratizing financial services through technology.
             </p>
-          </li>
+          </FadeIn>
 
-          <li className="grid  gap-8 md:grid-cols-[0.3fr,1fr]">
+          <FadeIn
+            as="li"
+            className="grid  gap-8 md:grid-cols-[0.3fr,1fr]"
+            withoutViewport
+          >
             <h2 className="subtitle-aux font-serif">Our Business</h2>
             <p className="content">
               At the core of our platform is the technical infrastructure APIs
@@ -28,7 +41,7 @@ const AboutInformation = () => {
               insights for businesses and individuals, as well as robust
               reporting for traditional financial institutions and developers.
             </p>
-          </li>
+          </FadeIn>
         </ul>
       </section>
 
@@ -51,31 +64,60 @@ const AboutInformation = () => {
       <section className="!container-small my-6 max-w-[35rem] text-center md:max-w-[47.5rem] md:text-start">
         <h2 className="sr-only">Team Members</h2>
 
-        <dl className="grid gap-8 py-12 md:grid-cols-3">
+        <FadeInStagger
+          as="dl"
+          className="grid gap-8 py-12 md:grid-cols-3"
+          faster
+          withoutViewport
+        >
           <div>
-            <dl>Team Members</dl>
-            <dd className="subtitle font-serif text-irresistible">
+            <FadeIn as="dl" withoutViewport>
+              Team Members
+            </FadeIn>
+            <FadeIn
+              as="dd"
+              className="subtitle font-serif text-irresistible"
+              withoutViewport
+            >
               <span aria-hidden="true">300+</span>
               <span className="sr-only">More than 300</span>
-            </dd>
+            </FadeIn>
           </div>
           <div>
-            <dl>Offices in the US</dl>
-            <dd className="subtitle font-serif text-irresistible">3</dd>
+            <FadeIn as="dl" withoutViewport>
+              Offices in the US
+            </FadeIn>
+            <FadeIn
+              as="dd"
+              className="subtitle font-serif text-irresistible"
+              withoutViewport
+            >
+              3
+            </FadeIn>
           </div>
           <div>
-            <dl>Transactions analyzed</dl>
-            <dd className="subtitle font-serif text-irresistible">
+            <FadeIn as="dl" withoutViewport>
+              Transactions analyzed
+            </FadeIn>
+            <FadeIn
+              as="dd"
+              className="subtitle font-serif text-irresistible"
+              withoutViewport
+            >
               <span aria-hidden="true">10M+</span>
               <span className="sr-only">More than 10 million</span>
-            </dd>
+            </FadeIn>
           </div>
-        </dl>
+        </FadeInStagger>
       </section>
 
       <section className="!container-small my-6 max-w-[35rem] text-center md:max-w-[47.5rem] md:text-start">
         <ul className="flex flex-col gap-12 pb-12">
-          <li className="grid gap-8 md:grid-cols-[0.3fr,1fr]">
+          <FadeIn
+            as="li"
+            className="grid gap-8 md:grid-cols-[0.3fr,1fr]"
+            withoutViewport
+          >
             <h2 className="subtitle-aux font-serif">The Culture</h2>
             <p className="content">
               We strongly believe there's always an opportunity to learn from
@@ -84,15 +126,19 @@ const AboutInformation = () => {
               value cross-team collaboration and diversity of thought, no matter
               the job title.
             </p>
-          </li>
-          <li className="grid gap-8 md:grid-cols-[0.3fr,1fr]">
+          </FadeIn>
+          <FadeIn
+            as="li"
+            className="grid gap-8 md:grid-cols-[0.3fr,1fr]"
+            withoutViewport
+          >
             <h2 className="subtitle-aux font-serif">The People</h2>
             <p className="content">
               We're all passionate about building a more efficient and inclusive
               financial infrastructure together. At PayAPI, we have diverse
               backgrounds and skills.
             </p>
-          </li>
+          </FadeIn>
         </ul>
       </section>
     </>

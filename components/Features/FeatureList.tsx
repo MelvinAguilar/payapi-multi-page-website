@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { FadeIn } from "../FadeIn";
 
 const FeatureList = () => {
   const features = [
@@ -26,7 +27,8 @@ const FeatureList = () => {
   return (
     <ul className="mb-[6rem] mt-[8.8481rem] flex flex-wrap justify-center gap-[1.875rem]">
       {features.map((feature, index) => (
-        <li
+        <FadeIn
+          as="li"
           key={feature.title}
           className="flex flex-col items-center gap-4 text-center"
         >
@@ -41,7 +43,7 @@ const FeatureList = () => {
           <p className="feat-content max-w-[21.875rem] text-slate-gray">
             {feature.content}
           </p>
-        </li>
+        </FadeIn>
       ))}
     </ul>
   );

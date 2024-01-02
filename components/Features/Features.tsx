@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import FeatureList from "./FeatureList";
+import { FadeIn } from "../FadeIn";
 
 const Features = () => {
   return (
     <section className="container text-police-blue">
       <h2 className="sr-only">Features</h2>
-      <div className="text-align my-12 flex flex-col items-center gap-8 lg:my-[9.375rem] lg:flex-row lg:gap-[7.8125rem]">
+      <FadeIn className="text-align my-12 flex flex-col items-center gap-8 lg:my-[9.375rem] lg:flex-row lg:gap-[7.8125rem]">
         <Image
           src="/home/desktop/illustration-easy-to-implement.svg"
           alt=""
@@ -23,9 +24,9 @@ const Features = () => {
             payments functionality with ease.
           </p>
         </div>
-      </div>
+      </FadeIn>
 
-      <div className="circle-third text-align relative flex flex-col items-center lg:flex-row-reverse ">
+      <FadeIn className="circle-third text-align relative flex flex-col items-center lg:flex-row-reverse ">
         <Image
           src="/home/desktop/illustration-simple-ui.svg"
           alt=""
@@ -41,7 +42,7 @@ const Features = () => {
             checkout flow and designed to optimize conversion.
           </p>
         </div>
-      </div>
+      </FadeIn>
 
       <FeatureList />
     </section>

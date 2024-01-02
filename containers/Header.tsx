@@ -4,6 +4,7 @@ import Link from "next/link";
 import MenuMobile from "@/components/MenuMobile";
 import useResponsiveMenuState from "@/hooks/useResponsiveMenuState";
 import React, { useEffect } from "react";
+import { FadeIn } from "@/components/FadeIn";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useResponsiveMenuState();
@@ -25,7 +26,11 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="container flex items-center gap-[4rem] py-[2.5rem] ">
+    <FadeIn
+      as="header"
+      className="container flex items-center gap-[4rem] py-[2.5rem]"
+      withoutViewport
+    >
       <Link href="/">
         <Image
           src="/shared/desktop/logo.svg"
@@ -61,14 +66,14 @@ const Header = () => {
           <li className="md:ml-auto">
             <Link
               href="/contact"
-              className="p-btn controller controller-purple | block shadow-button "
+              className="p-btn controller controller-purple | block shadow-button transition-all "
             >
               Schedule a Demo
             </Link>
           </li>
         </ul>
       </nav>
-    </header>
+    </FadeIn>
   );
 };
 

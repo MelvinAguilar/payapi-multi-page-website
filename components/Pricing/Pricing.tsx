@@ -1,4 +1,5 @@
 import React from "react";
+import { FadeIn, FadeInStagger } from "../FadeIn";
 
 type Props = {
   title: string;
@@ -15,30 +16,49 @@ type Props = {
 const Pricing = (props: Props) => {
   return (
     <section>
-      <h2 className="subtitle-aux my-4 font-serif text-irresistible">
+      <FadeIn
+        as="h2"
+        className="subtitle-aux my-4 font-serif text-irresistible"
+        withoutViewport
+      >
         {props.title}
-      </h2>
-      <p className="content">{props.description}</p>
-      <p className="subtitle my-6 font-serif">${props.price.toFixed(2)}</p>
+      </FadeIn>
+      <FadeIn as="p" className="content" withoutViewport>
+        {props.description}
+      </FadeIn>
+      <FadeIn as="p" className="subtitle my-6 font-serif" withoutViewport>
+        ${props.price.toFixed(2)}
+      </FadeIn>
 
-      <hr className="bg-slate-gray h-0.5" />
-      <ul className="w-fit md:w-full lg:px-4 mx-auto py-8 flex flex-col gap-3">
+      <hr className="h-0.5 bg-slate-gray" />
+      <FadeInStagger
+        as="ul"
+        className="mx-auto flex w-fit flex-col gap-3 py-8 md:w-full lg:px-4"
+        faster
+        withoutViewport
+      >
         {props.features?.map((feature) => (
-          <li
+          <FadeIn
+            as="li"
             key={feature.title}
             className={`plan-feature ${
               feature.enabled ? "feature-true" : "opacity-50"
             }`}
+            withoutViewport
           >
             {feature.title}
-          </li>
+          </FadeIn>
         ))}
-      </ul>
-      <hr className="bg-slate-gray h-0.5"/>
+      </FadeInStagger>
+      <hr className="h-0.5 bg-slate-gray" />
 
-      <button className="p-btn controller controller-dark mt-8 mb-20">
+      <FadeIn
+        as="button"
+        className="p-btn controller controller-dark mb-20 mt-8"
+        withoutViewport
+      >
         Request Access
-      </button>
+      </FadeIn>
     </section>
   );
 };

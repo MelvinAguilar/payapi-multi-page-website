@@ -1,5 +1,7 @@
 import React from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { FadeIn, PresenceAnimation } from "../FadeIn";
+import { AnimatePresence } from "framer-motion";
 
 interface InputProps {
   innerRef: UseFormRegisterReturn;
@@ -29,26 +31,30 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <>
-      <InputComponent
+      <FadeIn
+        as={InputComponent}
         {...innerRef}
-        {...additionalProps}
+        {...additionalProps} // @ts-ignore
         type={type}
         placeholder={placeholder}
         aria-label={ariaLabel}
         aria-invalid={ariaInvalid}
         aria-describedby={`${name}-error`}
-        className={`w-full border-b border-police-blue bg-transparent mt-4 py-3 px-5 ${className}`}
+        className={`mt-4 w-full border-b border-police-blue bg-transparent px-5 py-3 ${className}`}
       />
       <div aria-live="polite" aria-atomic="true">
-        {errors && errors.message && (
-          <p
-            id={`${name}-error`}
-            role="alert"
-            className="text-irresistible mx-5 mt-2 text-sm"
-          >
-            {errors.message || ""}
-          </p>
-        )}
+        <AnimatePresence>
+          {errors && errors.message && (
+            <PresenceAnimation
+              as="p"
+              id={`${name}-error`}
+              role="alert"
+              className="mx-5 mt-2 text-sm text-irresistible"
+            >
+              {errors.message || ""}
+            </PresenceAnimation>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );

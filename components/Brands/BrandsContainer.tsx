@@ -1,12 +1,13 @@
 import React from "react";
 import Brands from "./Brands";
 import Link from "next/link";
+import { FadeIn } from "../FadeIn";
 
 const BrandsContainer = () => {
   return (
     <div className="circle-second relative z-10 overflow-hidden bg-dark-gunmetal py-[6.25rem] text-police-blue ">
       <div className="container grid max-w-[37.5rem] gap-[2.5625rem] pl-[1.125rem] text-white lg:grid-cols-2">
-        <div className="text-align order-1 flex flex-col items-center lg:order-none lg:items-start">
+        <FadeIn className="text-align order-1 flex flex-col items-center lg:order-none lg:items-start">
           <h2 className="subtitle font-serif">Who we work with</h2>
           <p className="content | mb-[2rem] mt-[1.5rem] max-w-[27.8125rem] text-ghost-white opacity-70">
             {/* eslint-disable-next-line max-len */}
@@ -22,7 +23,7 @@ const BrandsContainer = () => {
           >
             About Us
           </Link>
-        </div>
+        </FadeIn>
         <Brands imageColor="filter-white" />
       </div>
     </div>
