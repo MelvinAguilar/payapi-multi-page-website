@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-// import { useEffect } from "react";
+import Footer from "@/containers/Footer";
+import Header from "@/containers/Header";
+
 import "./globals.css";
 import { DM_Serif_Display, Public_Sans } from "next/font/google";
 
@@ -36,9 +38,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-hidden">
       <body
-        className={`overflow-x-hidden relative ${dmSerifDisplay.variable} ${publicSans.variable}`}
+        className={`relative overflow-x-hidden ${dmSerifDisplay.variable} ${publicSans.variable}`}
       >
-        {children}
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

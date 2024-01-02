@@ -9,14 +9,10 @@ import BrandsContainer from "@/components/Brands/BrandsContainer";
 export default function Home() {
   return (
     <>
-      <Header />
-      <main className="flex-1">
-        <Hero />
-        <BrandsContainer />
-        <Features />
-        <CommunityForm />
-      </main>
-      <Footer />
+      <Hero />
+      <BrandsContainer />
+      <Features />
+      <CommunityForm />
     </>
   );
 }
