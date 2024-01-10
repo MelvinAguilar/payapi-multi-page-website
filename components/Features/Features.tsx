@@ -32,7 +32,7 @@ const Features = () => {
           alt=""
           width={566}
           height={500}
-          className="w-[21.875rem] lg:w-[35.375rem]"
+          className="filter-drop w-[21.875rem] lg:w-[35.375rem]"
         />
         <div className="mt-8 w-full lg:mt-0">
           <h3 className="subtitle mb-[1.5rem] font-serif">Simple UI & UX</h3>

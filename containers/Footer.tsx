@@ -66,7 +66,7 @@ const Footer = () => {
                   alt="Facebook"
                   width={24}
                   height={24}
-                  className="max-w-fit"
+                  className="hover:filter-pink max-w-fit transition-all"
                 />
               </a>
             </FadeIn>
@@ -81,7 +81,7 @@ const Footer = () => {
                   alt="Twitter"
                   width={24}
                   height={24}
-                  className="max-w-fit"
+                  className="hover:filter-pink max-w-fit transition-all"
                 />
               </a>
             </FadeIn>
@@ -96,7 +96,7 @@ const Footer = () => {
                   alt="LinkedIn"
                   width={24}
                   height={24}
-                  className="max-w-fit"
+                  className="hover:filter-pink max-w-fit transition-all"
                 />
               </a>
             </FadeIn>

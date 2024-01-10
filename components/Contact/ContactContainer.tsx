@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Input from "../Form/Input";
 import Brands from "../Brands/Brands";
 import { FadeIn, FadeInStagger } from "../FadeIn";
+import { toast } from "sonner";
 
 type FormValues = {
   name: string;
@@ -26,7 +27,8 @@ const ContactContainer = () => {
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
+    toast.success("Message sent successfully");
+    reset();
   };
 
   return (
@@ -47,14 +49,12 @@ const ContactContainer = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             innerRef={register("name")}
-            name="name"
             ariaLabel="Name"
             placeholder="Name"
             errors={errors.name}
           />
           <Input
             innerRef={register("email")}
-            name="email"
             type="email"
             ariaLabel="Email"
             placeholder="Email Address"
@@ -62,21 +62,18 @@ const ContactContainer = () => {
           />
           <Input
             innerRef={register("company")}
-            name="company"
             ariaLabel="Company"
             placeholder="Company Name"
             errors={errors.company}
           />
           <Input
             innerRef={register("title")}
-            name="title"
             ariaLabel="Title"
             placeholder="Title"
             errors={errors.title}
           />
           <Input
             innerRef={register("message")}
-            name="message"
             ariaLabel="Message"
             inputType="textarea"
             placeholder="Message"

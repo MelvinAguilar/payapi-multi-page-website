@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 interface MenuProps {
   toggleMenu: () => void;
@@ -6,6 +9,15 @@ interface MenuProps {
 }
 
 const Menu: React.FC<MenuProps> = ({ toggleMenu, isMenuOpen }) => {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      toggleMenu();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
   return (
     <button
       type="button"

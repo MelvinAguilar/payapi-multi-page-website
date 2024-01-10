@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/containers/Footer";
 import Header from "@/containers/Header";
+import { Toaster } from "sonner";
 
 import "./globals.css";
 import { DM_Serif_Display, Public_Sans } from "next/font/google";
@@ -43,6 +44,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Toaster richColors />
       </body>
     </html>
   );

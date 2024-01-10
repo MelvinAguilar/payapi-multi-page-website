@@ -5,7 +5,6 @@ import { AnimatePresence } from "framer-motion";
 
 interface InputProps {
   innerRef: UseFormRegisterReturn;
-  name: string;
   type?: string;
   inputType?: "input" | "textarea";
   placeholder: string;
@@ -16,7 +15,6 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({
   innerRef,
-  name,
   type = "text",
   inputType = "input",
   placeholder,
@@ -28,11 +26,11 @@ const Input: React.FC<InputProps> = ({
   const additionalProps = ariaLabel ? { "aria-label": ariaLabel } : {};
 
   const InputComponent = inputType === "textarea" ? "textarea" : "input";
+  const name = innerRef.name;
 
   return (
-    <>
-      <FadeIn
-        as={InputComponent}
+    <FadeIn>
+      <InputComponent
         {...innerRef}
         {...additionalProps} // @ts-ignore
         type={type}
@@ -56,7 +54,7 @@ const Input: React.FC<InputProps> = ({
           )}
         </AnimatePresence>
       </div>
-    </>
+    </FadeIn>
   );
 };
 

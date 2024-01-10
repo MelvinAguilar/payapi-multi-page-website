@@ -1,10 +1,12 @@
 "use client";
+
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { emailSchema } from "@/validations/EmailSchema";
 import { AnimatePresence } from "framer-motion";
 import { FadeIn, PresenceAnimation } from "../FadeIn";
+import { toast } from "sonner";
 
 type FormValue = {
   email: string;
@@ -21,7 +23,8 @@ const ContactForm = () => {
   });
 
   const onSubmit: SubmitHandler<FormValue> = (data) => {
-    console.log(data);
+    toast.success("Message sent successfully");
+    reset();
   };
 
   return (
@@ -43,8 +46,7 @@ const ContactForm = () => {
           type="submit"
           className="p-btn controller controller-purple right-0 top-0 mt-4 w-full transition-all md:absolute md:mt-0"
         >
-          {" "}
-          Schedule a Demo{" "}
+          Schedule a Demo
         </button>
       </FadeIn>
       <div aria-live="polite" aria-atomic="true">
