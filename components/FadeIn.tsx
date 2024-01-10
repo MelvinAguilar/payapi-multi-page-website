@@ -21,7 +21,7 @@ export function FadeIn<T extends React.ElementType = "div">({
 }) {
   // @ts-ignore
   let Component = as ? motion[as] : motion.div;
-  let shouldReduceMotion = useReducedMotion();
+  let shouldReduceMotion = true;
   const pathname = usePathname();
   const keyProps = multipage ? { key: pathname } : {};
 
