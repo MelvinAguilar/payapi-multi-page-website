@@ -6,14 +6,14 @@
 
   <h2 align="center">Time tracking dashboard solution</h2>
   <p align="center">
-    <a href="https://www.frontendmentor.io/"><strong>Frontend Mentor Challenge</strong></a>
+    <a href="https://www.frontendmentor.io/solutions/payapi-multipage-website-nextjs-typescript-tailwind-eslint-NwaOQ2ahp2"><strong>Frontend Mentor Challenge</strong></a>
     <br />
     <br />
-    <a href="https://github.com/MelvinAguilar/">View Demo</a>
+    <a href="https://payapi-multi-page-website-hdez.vercel.app/">View Demo</a>
     ·
-    <a href="https://github.com/MelvinAguilar/" target="_blank">Report Bug</a>
+    <a href="https://github.com/MelvinAguilar/payapi-multi-page-website" target="_blank">Report Bug</a>
     ·
-    <a href="https://github.com/MelvinAguilar/" target="_blank">Request Feature</a>
+    <a href="https://github.com/MelvinAguilar/payapi-multi-page-website" target="_blank">Request Feature</a>
   </p>
 </div>
 
@@ -40,7 +40,13 @@
 
 This is a solution to the [PayAPI multi-page website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/payapi-multipage-website-FDLR1Y11e). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+<h2 align="center">Links</h2>
+
+- Solution URL: [PayAPI multi-page website (Next.js + TypeScript + Tailwind + ESLint) | Frontend Mentor](https://www.frontendmentor.io/solutions/payapi-multipage-website-nextjs-typescript-tailwind-eslint-NwaOQ2ahp2)
+- Live Site URL: [https://payapi-multi-page-website-hdez.vercel.app/](https://payapi-multi-page-website-hdez.vercel.app/)
+
 <br>
+
 
 ## Table of contents
 

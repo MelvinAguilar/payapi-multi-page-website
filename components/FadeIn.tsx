@@ -21,22 +21,24 @@ export function FadeIn<T extends React.ElementType = "div">({
 }) {
   // @ts-ignore
   let Component = as ? motion[as] : motion.div;
-  let shouldReduceMotion = true;
+  let shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
   const keyProps = multipage ? { key: pathname } : {};
 
   const viewport = createViewport(withoutViewport);
 
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0 },
+  };
+  const reducedMotionVariants = {
+    hidden: { opacity: 1, y: 0 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <Component
-      variants={
-        shouldReduceMotion
-          ? "visible"
-          : {
-              hidden: { opacity: 0, y: 24 },
-              visible: { opacity: 1, y: 0 },
-            }
-      }
+      variants={shouldReduceMotion ? reducedMotionVariants : fadeInVariants} 
       transition={{ duration: 0.5 }}
       initial="hidden"
       whileInView="visible"
