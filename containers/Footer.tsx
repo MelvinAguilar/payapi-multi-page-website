@@ -60,6 +60,7 @@ const Footer = () => {
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="block"
               >
                 <Image
                   src="/shared/desktop/facebook.svg"
@@ -75,6 +76,7 @@ const Footer = () => {
                 href="https://www.twitter.com"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="block"
               >
                 <Image
                   src="/shared/desktop/twitter.svg"
@@ -90,6 +92,7 @@ const Footer = () => {
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="block"
               >
                 <Image
                   src="/shared/desktop/linkedin.svg"
