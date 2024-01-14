@@ -4,7 +4,7 @@
 
   <img src="https://www.frontendmentor.io/static/images/logo-mobile.svg" alt="frontendmentor" width="80">
 
-  <h2 align="center">Time tracking dashboard solution</h2>
+  <h2 align="center">Payapi-multi-page-website</h2>
   <p align="center">
     <a href="https://www.frontendmentor.io/solutions/payapi-multipage-website-nextjs-typescript-tailwind-eslint-NwaOQ2ahp2"><strong>Frontend Mentor Challenge</strong></a>
     <br />
